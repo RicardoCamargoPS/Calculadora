@@ -17,7 +17,6 @@ import javax.swing.SwingConstants;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.Font;
-import javax.swing.DropMode;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
