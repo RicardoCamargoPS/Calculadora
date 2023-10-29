@@ -8,6 +8,10 @@ Neste projeto fiz o uso do gruplayout para entender o seu funcionamento
 
 ![image calculadora](https://github.com/RicardoCamargoPS/Calculadora/blob/master/Calculadora/src/com/calculadora/resources/capa.png)
 
+### O que falta atualmente 
+
+1. implementar o sistema logico das operações
+2. interação dos botoes com o textfild
 
 ### O que eu ainda pretendo implementar 
 
