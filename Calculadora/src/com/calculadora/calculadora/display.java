@@ -8,9 +8,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
-public class display {
+public class display extends JPanel{
 
-    private JPanel displayPanel;
     private Canvas canvas;
     private BufferedImage layer;
 
@@ -22,10 +21,8 @@ public class display {
         this.height = height / 4;
 
         canvas = new Canvas();
-        canvas.setSize(new Dimension(this.width, this.height));
-
-        displayPanel = new JPanel();
-        displayPanel.add(canvas);
+        canvas.setSize(new Dimension(this.width, this.height));        
+        add(canvas);
     }
 
 
@@ -35,8 +32,10 @@ public class display {
            canvas.createBufferStrategy(3);
             bs = canvas.getBufferStrategy();
         }
+
+        
         Graphics g = layer.getGraphics();
-        g.setColor(Color.white);
+        g.setColor(Color.black);
         g.fillRect(0, 0, width, height);        
                                                               
                                 

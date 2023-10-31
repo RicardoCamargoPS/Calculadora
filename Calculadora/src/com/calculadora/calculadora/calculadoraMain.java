@@ -1,12 +1,12 @@
 package com.calculadora.calculadora;
 
-import javax.swing.BoxLayout;
+
 import javax.swing.JFrame;
 
 public class calculadoraMain extends JFrame {
 
-	private final int WIDTH = 460;
-	private final int HEIGHT = 300;
+	private final int WIDTH = 335;
+	private final int HEIGHT = 540;
 
 	private display visor;
 
@@ -18,15 +18,21 @@ public class calculadoraMain extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 
-		BoxLayout layout = new BoxLayout(Y_AXIS, 2);
-		setLayout(layout);
+		initComponent();
 
-		visor = new display(WIDTH, HEIGHT);
-		
+}
 
-	}
+public void initComponent(){
 
+	visor = new display(WIDTH, HEIGHT);
+	visor.render();
+	add(visor);
+	
+
+}
 	public static void main(String[] args) {
+
+		new calculadoraMain();
 		
 	}
 }
