@@ -98,9 +98,5 @@ public class TecladoCompleto extends JPanel {
 		teclado.add(mButtonRes);   
 
 		add(teclado);
-
-
 	}
-
-
 }

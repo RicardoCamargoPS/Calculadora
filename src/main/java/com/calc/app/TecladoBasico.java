@@ -49,9 +49,7 @@ public class TecladoBasico extends JPanel{
 		mButtonBack = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/btback.png")));
 
 
-		teclado = new JPanel();        
-
-
+		teclado = new JPanel();   
 
 		teclado.setLayout(new GridLayout(5,4,10,10));
 		teclado.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -81,7 +79,6 @@ public class TecladoBasico extends JPanel{
 		teclado.add(mButton0);
 		teclado.add(mButtonSinal);
 		teclado.add(mButtonRes);
-
 
 		add(teclado);
 	} 

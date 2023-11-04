@@ -84,10 +84,8 @@ public class CalculadoraApp extends JFrame {
      
             }
             
-        });      
-      
+        });       
 
-        
         completa.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
 
@@ -97,7 +95,7 @@ public class CalculadoraApp extends JFrame {
                 tecComp.setVisible(true);  
             
             }
-        });            
+        });           
 
     }
 
@@ -106,5 +104,4 @@ public class CalculadoraApp extends JFrame {
         new CalculadoraApp();
         
     }
-
 }
