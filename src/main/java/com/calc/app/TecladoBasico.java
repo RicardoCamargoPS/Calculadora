@@ -69,6 +69,23 @@ public class TecladoBasico extends JPanel{
 		teclado.add(mButton5);
 		teclado.add(mButton6);
 		teclado.add(mButtonSub);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
 		
 		teclado.add(mButton1);
 		teclado.add(mButton2);
