@@ -26,6 +26,8 @@ public class CalculadoraApp extends JFrame {
     private JMenu options;
     private JMenuItem padrao, completa;
     public static Visor visor;
+
+    
     
     private boolean isBasic = true;
 
