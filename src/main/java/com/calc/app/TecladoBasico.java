@@ -1,6 +1,10 @@
 package com.calc.app;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -17,6 +21,7 @@ public class TecladoBasico extends JPanel{
 	mButtonPor, mButtonCE, mButtonBack;
 
 	private JPanel teclado;	
+	private Map<JButton, String> buttonActionMap = new HashMap<>();
 
 	public TecladoBasico(){
 		initComponentes();
@@ -24,28 +29,49 @@ public class TecladoBasico extends JPanel{
 
 	private void initComponentes(){       
 
-		mButton0     = new JButton(new ImageIcon(TecladoBasico.class.getResource("./icons/bt0.png")));
-		mButton1     = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/bt1.png")));
-		mButton2     = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/bt2.png")));
-		mButton3     = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/bt3.png")));
-		mButton4     = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/bt4.png")));
-		mButton5     = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/bt5.png")));
-		mButton6     = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/bt6.png")));
-		mButton7     = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/bt7.png")));
-		mButton8     = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/bt8.png")));
-		mButton9     = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/bt9.png")));
-		mButtonDec   = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/btdec.png")));
-		mButtonSinal = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/btsinal.png")));
+		mButton0     = createButton("bt0", "bt0");
+		mButton1     = createButton("bt1", "bt1");
+		mButton2     = createButton("bt2", "bt2");
+		mButton3     = createButton("bt3", "bt3");
+		mButton4     = createButton("bt4", "bt4");
+		mButton5     = createButton("bt5", "bt5");
+		mButton6     = createButton("bt6", "bt6");
+		mButton7     = createButton("bt7", "bt7");
+		mButton8     = createButton("bt8", "bt8");
+		mButton9     = createButton("bt9", "bt9");
+		mButtonDec   = createButton("btdec", "btdec");
+		mButtonSinal = createButton("btsinal", "btsinal");
+		mButtonAdi  = createButton("btsoma", "btsoma");
+		mButtonSub  = createButton("btsub", "btsub");
+		mButtonMul  = createButton("btmult", "btmult");
+		mButtonDiv  = createButton("btdiv", "btdiv");
+		mButtonRes  = createButton("btresul", "btresul");
+		mButtonPor  = createButton("btporc", "btporc");
+		mButtonCE   = createButton("btce", "btce");
+		mButtonBack = createButton("btback", "btback");
 
-		mButtonAdi  = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/btsoma.png")));
-		mButtonSub  = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/btsub.png")));
-		mButtonMul  = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/btmult.png")));
-		mButtonDiv  = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/btdiv.png")));
-		mButtonRes  = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/btresul.png")));
 
-		mButtonPor  = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/btporc.png")));
-		mButtonCE   = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/btce.png")));
-		mButtonBack = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/btback.png")));
+		ActionListener buttonListener = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String actionCommand = e.getActionCommand();
+                // Encontre o botão associado à ação
+                for (JButton button : buttonActionMap.keySet()) {
+                    if (buttonActionMap.get(button).equals(actionCommand)) {
+                        // Lógica para o botão correspondente
+                        //System.out.println("Botão " + button.equals(mButton0) + " clicado");
+                        // Adicione lógica personalizada para a ação
+
+						if("bt9".equals(actionCommand)){
+							CalculadoraApp.visor.setLinhaBaixo("9");
+						}
+                    }
+                }
+            }
+        };
+
+		for (JButton button : buttonActionMap.keySet()) {
+            button.addActionListener(buttonListener);
+        }
 
 
 		teclado = new JPanel();   
@@ -81,4 +107,11 @@ public class TecladoBasico extends JPanel{
 
 		add(teclado);
 	} 
+
+	private JButton createButton(String text, String actionCommand) {
+        JButton button = new JButton(new ImageIcon(TecladoBasico.class.getResource("icons/" + text + ".png")));
+        button.setActionCommand(actionCommand);
+        buttonActionMap.put(button, actionCommand);
+        return button;
+    }
 }
