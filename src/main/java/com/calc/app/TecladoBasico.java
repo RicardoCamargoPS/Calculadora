@@ -1,7 +1,6 @@
 package com.calc.app;
 
 import java.awt.GridLayout;
-import java.util.Objects;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -68,24 +67,7 @@ public class TecladoBasico extends JPanel{
 		teclado.add(mButton4);
 		teclado.add(mButton5);
 		teclado.add(mButton6);
-		teclado.add(mButtonSub);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
+		teclado.add(mButtonSub);		
 		
 		teclado.add(mButton1);
 		teclado.add(mButton2);
