@@ -69,16 +69,16 @@ public class TecladoBasico extends JPanel {
 									txtValor1 += "9";
 									System.out.println(txtValor1);
 
-									CalculadoraApp.visor.pixelDigito(34);
-									CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
+									//CalculadoraApp.visor.pixelDigito(34);
+									//CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
 								}
 								break;
 
 							case "bt8":
 								txtValor1 += "8";
 								System.out.println(txtValor1);
-								CalculadoraApp.visor.pixelDigito(35);
-								CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
+								//CalculadoraApp.visor.pixelDigito(35);
+								//CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
 								break;
 
 							case "bt7":
@@ -86,62 +86,62 @@ public class TecladoBasico extends JPanel {
 									txtValor1 += "7";
 									System.out.println(txtValor1);
 
-									CalculadoraApp.visor.pixelDigito(34);
-									CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
+									//CalculadoraApp.visor.pixelDigito(34);
+									//CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
 								}
 								break;
 							case "bt6":
 								txtValor1 += "6";
 								System.out.println(txtValor1);
 
-								CalculadoraApp.visor.pixelDigito(34);
-								CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
+								//CalculadoraApp.visor.pixelDigito(34);
+								//CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
 								break;
 							case "bt5":
 								if (operador.equals("")) {
 									txtValor1 += "5";
 									System.out.println(txtValor1);
 
-									CalculadoraApp.visor.pixelDigito(34);
-									CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
+									//CalculadoraApp.visor.pixelDigito(34);
+									//CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
 								}
 								break;
 							case "bt4":
 								txtValor1 += "4";
 								System.out.println(txtValor1);
 
-								CalculadoraApp.visor.pixelDigito(40);
-								CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
+								//CalculadoraApp.visor.pixelDigito(40);
+								//CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
 								break;
 							case "bt3":
 								if (operador.equals("")) {
 									txtValor1 += "3";
 									System.out.println(txtValor1);
 
-									CalculadoraApp.visor.pixelDigito(35);
-									CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
+									//CalculadoraApp.visor.pixelDigito(35);
+									//CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
 								}
 								break;
 							case "bt2":
 								txtValor1 += "2";
 								System.out.println(txtValor1);
-								CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
+								//CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
 								break;
 							case "bt1":
 								if (operador.equals("")) {
 									txtValor1 += "1";
 									System.out.println(txtValor1);
 
-									CalculadoraApp.visor.pixelDigito(18);
-									CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
+									//CalculadoraApp.visor.pixelDigito(18);
+									//CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
 								}
 								break;
 							case "bt0":
 								txtValor1 += "0";
 								System.out.println(txtValor1);
 
-								CalculadoraApp.visor.pixelDigito(35);
-								CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
+								//CalculadoraApp.visor.pixelDigito(35);
+								//CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
 								break;
 							
 							default:

@@ -1,6 +1,8 @@
 package com.calc.app;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,6 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JTextPane;
+import javax.swing.JPanel;
+
 
 
 public class CalculadoraApp extends JFrame {
@@ -25,11 +30,15 @@ public class CalculadoraApp extends JFrame {
     private JMenuBar menuBar;
     private JMenu options;
     private JMenuItem padrao, completa;
-    public static Visor visor;
+
+    private JTextPane visor;
+
+    private Font font = new Font("Arial", Font.PLAIN, 24);
+   //public static Visor visor;
 
     
     
-    private boolean isBasic = true;
+    private boolean isBasic = false;
 
     CalculadoraApp(){
 
@@ -43,10 +52,20 @@ public class CalculadoraApp extends JFrame {
         setJMenuBar(menuBar);
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
         
-        visor = new Visor();
-        visor.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        add(visor);
-        
+        visor = new JTextPane();        
+        visor.setBorder(BorderFactory.createEmptyBorder(10, 10, 100, 280));
+        visor.setFont(font);           
+        visor.setEditable(false);
+
+        JPanel painelVisor = new JPanel();
+        painelVisor.setPreferredSize(new Dimension(100, 150));      
+        painelVisor.setBackground(Color.blue);
+        painelVisor.add(visor);
+
+
+        add(painelVisor);
+
+
         tecBasic = new TecladoBasico();
         tecComp = new TecladoCompleto();
 
