@@ -59,7 +59,7 @@ public class CalculadoraApp extends JFrame {
 
         JPanel painelVisor = new JPanel();
         painelVisor.setPreferredSize(new Dimension(100, 150));      
-        painelVisor.setBackground(Color.blue);
+        painelVisor.setBackground(new Color(211, 211, 211));
         painelVisor.add(visor);
 
 

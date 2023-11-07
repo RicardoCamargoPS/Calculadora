@@ -6,6 +6,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import java.awt.Color;
 
 public class TecladoCompleto extends JPanel {
 
@@ -20,7 +21,9 @@ public class TecladoCompleto extends JPanel {
 
 	private JPanel teclado;
 
-	public TecladoCompleto() {		 
+	public TecladoCompleto() {		
+		
+		setBackground(new Color(211, 211, 211));
 		initComponentes();
 	}
 
@@ -96,6 +99,7 @@ public class TecladoCompleto extends JPanel {
 		teclado.add(mButton0);
 		teclado.add(mButtonSinal);
 		teclado.add(mButtonRes);   
+		teclado.setBackground(new Color(211, 211, 211));
 
 		add(teclado);
 	}
