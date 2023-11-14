@@ -1,5 +1,8 @@
 package com.calc.app;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,8 +13,11 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextPane;
 
 public class TecladoBasico extends JPanel {
+
+	private Font font = new Font("Arial", Font.PLAIN, 24);
 
 	private JButton mButton0, mButton1, mButton2, mButton3, mButton4, mButton5,
 			mButton6, mButton7, mButton8, mButton9, mButtonDec, mButtonSinal,
@@ -22,7 +28,7 @@ public class TecladoBasico extends JPanel {
 
 	private JPanel teclado;
 	private Map<JButton, String> buttonActionMap = new HashMap<>();
-
+	
 	private String txtValor1 = "", txtValor2 = "";
 	private String operador = "";
 
@@ -55,6 +61,8 @@ public class TecladoBasico extends JPanel {
 		mButtonCE = createButton("btce", "btce");
 		mButtonBack = createButton("btback", "btback");
 
+
+		
 		ActionListener buttonListener = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String actionCommand = e.getActionCommand();
@@ -66,11 +74,7 @@ public class TecladoBasico extends JPanel {
 							case "bt9":
 
 								if (operador.equals("")) {
-									txtValor1 += "9";
-									System.out.println(txtValor1);
-
-									//CalculadoraApp.visor.pixelDigito(34);
-									//CalculadoraApp.visor.setLinhaBaixo(txtValor1, txtValor1.length());
+									CalculadoraApp.visor.setText(CalculadoraApp.visor.getText().concat("9"));
 								}
 								break;
 
@@ -187,6 +191,8 @@ public class TecladoBasico extends JPanel {
 		teclado.add(mButtonSinal);
 		teclado.add(mButtonRes);
 
+		
+		
 		add(teclado);
 	}
 

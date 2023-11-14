@@ -31,7 +31,7 @@ public class CalculadoraApp extends JFrame {
     private JMenu options;
     private JMenuItem padrao, completa;
 
-    private JTextPane visor;
+    public static JTextPane visor;
 
     private Font font = new Font("Arial", Font.PLAIN, 24);
    //public static Visor visor;
