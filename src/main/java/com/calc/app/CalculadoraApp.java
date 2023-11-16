@@ -48,48 +48,23 @@ public class CalculadoraApp extends JFrame {
 
     private JPanel tecladoBasico, tecladoComp;
     private Map<JButton, String> buttonActionMap = new HashMap<>();
-	
-
     
-    
-    private boolean isBasic = false;
+    private boolean isBasic = true;
 
     CalculadoraApp(){
-
-        initComponentes();
-        menuBar = new JMenuBar();
-        options = new JMenu("Opções");
-        padrao = new JMenuItem("Padrão");
-        completa = new JMenuItem("Completa");
-        options.add(padrao);
-        options.add(completa);
-        menuBar.add(options);
-        setJMenuBar(menuBar);
-        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-        
-        visor = new Visor();        
-        visor.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-    
+        initComponentes();  
         add(visor);
 
-
-       
-        //tecComp = new TecladoCompleto();
-
         if(isBasic) {   
-	        height = 500;
-            tecladoBasico.setVisible(true);
-            //tecComp.setVisible(false);
-
+	        height = 500; 
+            tecladoComp.setVisible(false);
 	                    
         }else{
-            height = 600;
-	        tecladoBasico.setVisible(false);
-	        //tecComp.setVisible(true);     
+            height = 640;
         }
 
+        add(tecladoComp);
         add(tecladoBasico);
-        //add(tecComp);  
 
         setTitle("Calculador");
         setSize(new Dimension(WIDTH, height));
@@ -98,6 +73,8 @@ public class CalculadoraApp extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
+        setJMenuBar(menuBar);
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 
         padrao.addActionListener(new ActionListener() {
 
@@ -105,27 +82,41 @@ public class CalculadoraApp extends JFrame {
                 
                 height = 500;
                 setSize(new Dimension(WIDTH, height));
-                tecladoBasico.setVisible(true);
-                //tecComp.setVisible(false);  
+                isBasic = true;
+                tecladoComp.setVisible(false);
+                revalidate();
      
-            }
-            
+            }            
         });       
 
         completa.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
 
-                height = 600;
+                height = 640;
                 setSize(new Dimension(WIDTH, height));
-                tecladoBasico.setVisible(false);
-                //tecComp.setVisible(true);  
+                isBasic = false;
+                tecladoComp.setVisible(true);
+                revalidate();
             
             }
         }); 
+     
+        
+        revalidate();
         
     }
 
     public void initComponentes(){
+        menuBar = new JMenuBar();
+        options = new JMenu("Opções");
+        padrao = new JMenuItem("Padrão");
+        completa = new JMenuItem("Completa");
+        options.add(padrao);
+        options.add(completa);
+        menuBar.add(options);
+
+        visor = new Visor();        
+        visor.setBorder(BorderFactory.createEmptyBorder(10, 10, 5, 10));
 
         mButton0 = createButton("bt0", "bt0");		
         mButton1 = createButton("bt1", "bt1");
@@ -148,19 +139,34 @@ public class CalculadoraApp extends JFrame {
         mButtonCE = createButton("btce", "btce");
         mButtonBack = createButton("btback", "btback");
 
-        mButtonPot = createButton("bt0", "bt0");		
-        mButtonFat = createButton("bt1", "bt1");
-        mButtonRad = createButton("bt2", "bt2");
-        mButtonSen = createButton("bt3", "bt3");
-        mButtonCos = createButton("bt4", "bt4");
-        mButtonTan = createButton("bt5", "bt5");
-        mButtonAbreChave = createButton("bt6", "bt6");
-        mButtonFechaChave = createButton("bt7", "bt7"); 
+        mButtonPot = createButton("btp", "btp");		
+        mButtonFat = createButton("btf", "btf");
+        mButtonRad = createButton("btr", "btr");
+        mButtonSen = createButton("bts", "bts");
+        mButtonCos = createButton("btc", "btc");
+        mButtonTan = createButton("btt", "btt");
+        mButtonAbreChave = createButton("btac", "btac");
+        mButtonFechaChave = createButton("btfc", "btfc"); 
+        
+        
         tecladoBasico = new JPanel();
-  
-
-        tecladoBasico.setLayout(new GridLayout(5, 4, 10, 10));
         tecladoBasico.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        tecladoBasico.setLayout(new GridLayout(5, 4, 10, 10));
+
+        tecladoComp = new JPanel();
+        tecladoComp.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
+        tecladoComp.setLayout(new GridLayout(2, 4, 10, 10));
+
+        
+        tecladoComp.add(mButtonPot);
+        tecladoComp.add(mButtonFat);
+        tecladoComp.add(mButtonRad);
+        tecladoComp.add(mButtonSen);
+        tecladoComp.add(mButtonCos);
+        tecladoComp.add(mButtonTan);
+        tecladoComp.add(mButtonAbreChave);
+        tecladoComp.add(mButtonFechaChave);
+        
         tecladoBasico.add(mButtonPor);
         tecladoBasico.add(mButtonCE);
         tecladoBasico.add(mButtonBack);
@@ -180,15 +186,15 @@ public class CalculadoraApp extends JFrame {
         tecladoBasico.add(mButtonDec);
         tecladoBasico.add(mButton0);
         tecladoBasico.add(mButtonSinal);
-        tecladoBasico.add(mButtonRes);
+        tecladoBasico.add(mButtonRes);      
     }
 
     private JButton createButton(String text, String actionCommand) {
-	JButton button = new JButton(new ImageIcon(CalculadoraApp.class.getResource("icons/" + text + ".png")));		
-	button.setActionCommand(actionCommand);
-	buttonActionMap.put(button, actionCommand);
-	return button;
-}
+	    JButton button = new JButton(new ImageIcon(CalculadoraApp.class.getResource("icons/" + text + ".png")));		
+	    button.setActionCommand(actionCommand);
+	    buttonActionMap.put(button, actionCommand);
+	    return button;
+    }
 
 
     public static void main(String[] args) {
