@@ -1,65 +1,49 @@
 package com.calc.app;
 
-import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 
 public class Visor extends JPanel {
 
-    private Canvas visor;
-    private int width, height;   
-
-    private String linhaCima = "", linhaBaixo = "0";
-
+    private int width, height;
+    private JTextField tfTop, tfDown;       
        
 
     public Visor(){       
 
-        this.width = 320;
-        this.height = 120;     
+        this.width = 300;
+        this.height = 90;   
         
-        setSize(new Dimension( this.width, this.height));
-
-       setBounds(5, 5, this.width, this.height);        
-
-        visor = new Canvas(){
-            public void paint(Graphics g){
-                g.setColor(Color.white);
-                g.fillRect(0, 0, getWidth(), getHeight());
-
-                g.setColor(Color.black);
-                Font font = new Font("Bahnschrift", Font.PLAIN, 36);
-                g.setFont(font);
-
-                g.drawString(linhaCima,  width - 60, height - 80);
-
-                font = new Font("Bahnschrift", Font.PLAIN, 64);
-                g.setFont(font);
-
-                g.drawString(linhaBaixo, width - 70, height - 10);
-
-            }
-        };
-        visor.setBackground(Color.white);
-        visor.setSize(this.width - 20, this.height + 10);          
+        setPreferredSize(new Dimension( this.width, this.height));        
+        setMaximumSize(new Dimension( this.width, this.height));        
+        setBounds(5, 5, this.width, this.height); 
+        setBackground(new Color(255,255,255,1));
         
-        add(visor);   
+        tfTop = new JTextField();
+        tfTop.setHorizontalAlignment(4);
+        tfTop.setPreferredSize(new Dimension( this.width - 19, this.height / 3));
+        tfTop.setBorder(BorderFactory.createEmptyBorder());
 
+        tfDown = new JTextField(); 
+        tfDown.setHorizontalAlignment(4);
+        tfDown.setPreferredSize(new Dimension( this.width - 19, this.height / 3));
+        tfDown.setBorder(BorderFactory.createEmptyBorder());
+       
+        add(tfTop);
+        add(tfDown);
     }
 
-    public void setLinhaCima(String texto){
-        this.linhaCima = texto;
-        visor.repaint();
+    public void setTexttfDown(String texto){
+        tfDown.setText(texto);        
     }
 
-    public void setLinhaBaixo(String texto){
-        this.linhaBaixo = texto;
-        visor.repaint();
+    public void setTexttfTop(String texto){
+        tfTop.setText(texto);       
     }
     
 }
